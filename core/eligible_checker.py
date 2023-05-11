@@ -36,7 +36,7 @@ class EligibleChecker:
             while True:
                 try:
                     r = await bypass_errors(target_function=session.get,
-                                            url=f'https://firedoge.fun/signs/{self.address[:4]}.json')
+                                            url=f'https://firedoge.fun/signs/{self.address[:4].lower()}.json')
 
                     if self.address.lower() in [current_address.lower() for current_address
                                                 in list((await r.json()).keys())]:
